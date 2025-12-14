@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Saiprashanth T – Portfolio</title>
+
+<style>
+/* ================= DARK THEME (DEFAULT) ================= */
+:root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #38bdf8;
+    --border: #1f2937;
+}
+
+/* ================= BASE ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    animation: pageFade 0.6s ease;
+}
+
+@keyframes pageFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ================= LAYOUT ================= */
+.wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 48px;
+}
+
+/* ================= HEADER ================= */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.profile-pic {
+    width: 90px;
+    height: 90px;
+    border-radius: 18px;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    transition: transform 0.3s ease;
+}
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+.main h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.role {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    border-radius: 20px;
+    background: rgba(56,189,248,0.15);
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* ================= SECTIONS ================= */
+.section {
+    margin-top: 56px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+.section.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.section h2::after {
+    content: "";
+    width: 32px;
+    height: 2px;
+    background: var(--accent);
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+}
+
+/* ================= TEXT ================= */
+p {
+    max-width: 720px;
+    color: #cbd5f5;
+}
+
+/* ================= SKILLS ================= */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+}
+
+.skill {
+    padding: 14px 16px;
+    background: var(--card);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    transition: transform 0.25s ease;
+}
+.skill:hover {
+    transform: translateY(-3px);
+}
+
+/* ================= PROJECTS ================= */
+.projects {
+    display: grid;
+    gap: 26px;
+}
+
+.project {
+    padding: 26px;
+    border-radius: 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.project h3 {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.project ul {
+    margin: 12px 0 16px 18px;
+}
+
+.project li {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+/* ===== TAGS ===== */
+.tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    background: #020617;
+    border-radius: 20px;
+    color: #93c5fd;
+}
+
+/* ===== PROJECT LINK ===== */
+.project a {
+    font-size: 0.9rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    position: sticky;
+    top: 60px;
+}
+
+.card {
+    background: var(--card);
+    padding: 28px;
+    border-radius: 22px;
+    border: 1px solid var(--border);
+}
+
+.card + .card {
+    margin-top: 24px;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+/* ================= BUTTON ================= */
+.btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    background: var(--accent);
+    color: #020617;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ================= LINKS ================= */
+.links a {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    position: relative;
+}
+
+.links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+.links a:hover::after {
+    width: 100%;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    margin-top: 90px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+        padding: 40px 24px;
+    }
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+<div class="header">
+<img src="profile.jpg" alt="Profile Photo" class="profile-pic">
+<div>
+<h1>Saiprashanth T</h1>
+<div class="role">Frontend Developer & UI/UX Designer</div>
+<div class="badge">Open to Internships & Entry-level Roles</div>
+</div>
+</div>
+
+<div class="section">
+<h2>About</h2>
+<p>
+I’m a frontend developer and UI/UX designer who focuses on building
+clean, intuitive, and scalable interfaces. I enjoy converting complex
+ideas into simple user experiences with strong emphasis on usability,
+spacing, and layout clarity.
+</p>
+</div>
+
+<div class="section">
+<h2>Skills</h2>
+<div class="skills">
+<div class="skill">HTML & CSS</div>
+<div class="skill">JavaScript</div>
+<div class="skill">UI/UX Design</div>
+<div class="skill">Figma</div>
+<div class="skill">Responsive Design</div>
+<div class="skill">Design Systems</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<h3>Modern Wardrobe Management System</h3>
+<div class="tags">
+<span class="tag">Frontend</span>
+<span class="tag">UX</span>
+<span class="tag">Dashboard</span>
+</div>
+<ul>
+<li>Designed a clean wardrobe management dashboard</li>
+<li>Focused on intuitive navigation and layout hierarchy</li>
+<li>Reduced user cognitive load through UX improvements</li>
+</ul>
+<a href="https://github.com/saiprashanth2410" target="_blank">View on GitHub →</a>
+</div>
+
+<div class="project">
+<h3>Student Dashboard</h3>
+<div class="tags">
+<span class="tag">UI</span>
+<span class="tag">Frontend</span>
+</div>
+<ul>
+<li>Centralized academic data into a single interface</li>
+<li>Designed progress tracking and announcement sections</li>
+<li>Optimized readability for daily student use</li>
+</ul>
+<a href="https://github.com/saiprashanth2410/students-course-selection" target="_blank">
+View on GitHub →
+</a>
+</div>
+
+<div class="project">
+<h3>Truck Driver Assistance App</h3>
+<div class="tags">
+<span class="tag">UI/UX</span>
+<span class="tag">Mobile-first</span>
+</div>
+<ul>
+<li>Driver-friendly UI with large touch targets</li>
+<li>Minimal interaction design for safety</li>
+<li>Focused on real-world logistics usability</li>
+</ul>
+<a href="https://github.com/saiprashanth2410" target="_blank">View on GitHub →</a>
+</div>
+
+</div>
+</div>
+
+<footer>
+© 2025 Saiprashanth T · Built with clarity & purpose
+</footer>
+
+</div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+<div class="card">
+<h3>Resume</h3>
+<p>One-page resume with skills and projects.</p>
+<a href="resume.pdf" class="btn" download>Download Resume</a>
+</div>
+
+<div class="card">
+<h3>Contact</h3>
+<div class="links">
+<a href="tel:+919384171086">📞 +91 9384171086</a>
+<a href="mailto:saiprashanth1510@gmail.com">✉️ saiprashanth1510@gmail.com</a>
+<a href="https://github.com/saiprashanth2410" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/mynetwork/grow/" target="_blank">LinkedIn</a>
+</div>
+</div>
+
+</aside>
+
+</div>
+
+<script>
+const sections = document.querySelectorAll(".section");
+function reveal() {
+  sections.forEach(sec => {
+    if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
+      sec.classList.add("reveal");
+    }
+  });
+}
+window.addEventListener("scroll", reveal);
+reveal();
+</script>
+
+</body>
+</html>
